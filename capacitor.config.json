@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Lista",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
