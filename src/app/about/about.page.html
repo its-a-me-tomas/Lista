@@ -1,0 +1,26 @@
+<ion-header class="center">
+  <ion-toolbar>
+    <ion-title>About</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background" >
+  <div id="container">
+    <!-- nombres -->
+    <h3>Desarrolladores</h3>
+    <p>Tomas B. Acevedo S.</p>
+    <p>Gustavo Amador Velázquez</p>
+    <!-- logo -->
+    <ion-card style="--background: white;"> 
+      <img src="../../assets/ulv.png" alt="Universidad Linda">
+    </ion-card>
+    <!-- version -->
+    <p>version 1.0</p>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button size="small" color="dark" [routerLink]="['/home']" >
+    <ion-icon name="home"></ion-icon> 
+  </ion-button>
+</ion-footer>

@@ -1,20 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
+
+<ion-content class="background" [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Pase de Lista</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>Bienvenido</strong><br>
+    <!-- user icon -->
+    <ion-icon name="person-circle" style="font-size: 95px; color: rgb(7, 44, 94);"></ion-icon>
+    <!-- input -->
+    <ion-item class="color" type="number">
+      <ion-label position="floating">Ingresa tu matricula</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <!-- valid button -->
+    <ion-button expand="block" color="dark" [routerLink]="['/index']" class="validar">Ingresar</ion-button>  
   </div>
 </ion-content>
+
+
+<ion-footer class="ion-no-border" >
+  <ion-button size="small" color="transparent" [routerLink]="['/about']" class="about">
+    <ion-icon name="information-circle-sharp"></ion-icon>
+  </ion-button>
+</ion-footer>
