@@ -1,10 +1,11 @@
-ion-header.center{
-  text-align: center;
-}
 ion-content.background{
   --background:url(../../assets/fondo.png) center no-repeat;
 }
-
+ion-toolbar{
+  text-align: center;
+  --background: rgb(0, 0, 0);
+  color: white;
+}
 #container {
 text-align: center;
 
@@ -16,5 +17,5 @@ transform: translateY(-50%);
 }
 
 #version{
-    color: black;
+  color: black;
 }

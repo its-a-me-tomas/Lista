@@ -1,4 +1,4 @@
-<ion-header class="center">
+<ion-header >
   <ion-toolbar>
     <ion-title>About</ion-title>
   </ion-toolbar>
@@ -20,7 +20,9 @@
 </ion-content>
 
 <ion-footer>
-  <ion-button size="small" color="dark" [routerLink]="['/home']" >
-    <ion-icon name="home"></ion-icon> 
-  </ion-button>
+  <ion-toolbar>
+    <ion-button size="small" [routerLink]="['/home']" >
+      <ion-icon name="home"></ion-icon> 
+    </ion-button>
+  </ion-toolbar>  
 </ion-footer>

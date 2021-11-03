@@ -7,6 +7,16 @@
 <ion-content [fullscreen]="true" class="background">
   <div id="container">
     
-
+    <ion-button size="small" color="dark" (click)="scanner()"><!-- llamada a scanear -->
+      <ion-icon name="camera"></ion-icon>
+    </ion-button>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button size="small" [routerLink]="['/home']" >
+      <ion-icon name="home"></ion-icon> 
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

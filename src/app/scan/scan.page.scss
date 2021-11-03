@@ -4,6 +4,11 @@ ion-content.background{
 ion-button.pos{
     margin-top: 80px;
 }
+ion-toolbar{
+    text-align: center;
+    --background: rgb(0, 0, 0);
+    color: white;
+}
 #container {
   text-align: center;
 
@@ -11,8 +16,5 @@ ion-button.pos{
   left: 0;
   right: 0;
   top: 50%;
-  transform: translateY(-50%);
-}
-#code{
-    --background: rgba(0, 0, 0, 0.007) ;
+  transform: translateY(-50%);  
 }

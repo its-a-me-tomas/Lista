@@ -3,6 +3,12 @@ ion-content.background{
   --background:url(../../assets/fondo.png) center no-repeat;
 }
 
+ion-toolbar{
+  text-align: center;
+  --background: rgb(0, 0, 0);
+  color: white;
+}
+
 ion-item.color{
   --color: rgb(7, 5, 5);
   --background: rgba(142, 151, 17, 0.103);
@@ -19,7 +25,7 @@ ion-button.validar{
 
 ion-button.about{
   position: relative;
-  left: 85%;
+  left: 40%;
 }
 #container {
   text-align: center;
@@ -36,16 +42,4 @@ ion-button.about{
   line-height: 26px;
   color: rgb(41, 41, 25);
   margin-bottom: 20px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
 }
