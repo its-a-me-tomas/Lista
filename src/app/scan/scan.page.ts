@@ -39,7 +39,7 @@ export class ScanPage implements OnInit {
       (id_user) => {
         if (event == '1') {
           this.com.setHours(0o7, 0o0, 0o0);
-          if (this.com < this.current) {
+          if (this.com > this.current) {
             this.data = {
               user: id_user.text,
               event: event,
@@ -54,10 +54,10 @@ export class ScanPage implements OnInit {
               date: this.current.toISOString().slice(0, 10),
             };
           }
-          alert('Paso M');
+          //alert('Paso M');
         } else {
           this.com.setHours(19, 30, 0o0);
-          if (this.com < this.current) {
+          if (this.com > this.current) {
             this.data = {
               user: id_user.text,
               event: event,
@@ -72,7 +72,7 @@ export class ScanPage implements OnInit {
               date: this.current.toISOString().slice(0, 10),
             };
           }
-          alert('Paso v');
+          //alert('Paso v');
         }
         const assistance = this.data;
         console.log(this.data);
