@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 //barcodescanner
-import { BarcodeScanner, BarcodeScannerOptions} from '@ionic-native/barcode-scanner/ngx';
+import {
+  BarcodeScanner,
+  BarcodeScannerOptions,
+} from '@ionic-native/barcode-scanner/ngx';
+import { AlertController } from '@ionic/angular';
 //ayuda a base de datos
 import { PHPService } from '../services/php.service';
 
@@ -10,69 +14,90 @@ import { PHPService } from '../services/php.service';
   styleUrls: ['./scan.page.scss'],
 })
 export class ScanPage implements OnInit {
-  scanData: {};
   option: BarcodeScannerOptions;
-//inyectar constructor
-constructor(private scanner: BarcodeScanner, private service:PHPService) {}
 
-time = new Date();
-
-/* //constructor
-this.data += this.time.toLocaleTimeString() + " "
-this.data += this.time.toLocaleDateString(); */
+  //inyectar constructor
+  constructor(private scanner: BarcodeScanner, private service: PHPService, private alertcrl: AlertController) {}
 
   ngOnInit() {
     /* this.service.proofId('').subscribe(response =>{
       console.log(response)
     }) */
   }
-  
-  // function to scan
-  /* 
-  QRscaner(){
-    // Optionally request the permission early
-    this.qrScanner.prepare().then((status: QRScannerStatus) => {
-      if (status.authorized) {
-        // camera permission was granted
-        this.qrScanner.show();
-        document.getElementsByTagName("body")[0].style.opacity="0.3";
-        // start scanning
-        let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-          alert('Scanned something: ' + text);
-          document.getElementsByTagName("body")[0].style.opacity="1";
-          this.qrScanner.hide(); // hide camera preview
-          scanSub.unsubscribe(); // stop scanning
-        });
 
-      } else if (status.denied) {
-        // camera permission was permanently denied
-        // you must use QRScanner.openSettings() method to guide the user to the settings page
-        // then they can grant the permission from there
-      } else {
-        // permission was denied, but not permanently. You can ask for permission again at a later time.
-      }
-    })
-    .catch((e: any) => console.log('Error is', e));
-  }
-  */
-  scan() {
+  current = new Date();
+  com = new Date();
+  json: JSON;
+  data: any;
+  // function to scan
+  scan(event: String) {
+    //recibe id de evento
     this.option = {
-      prompt: 'scan your qrcode',
+      prompt: 'Enfoca el QR!',
     };
     this.scanner.scan(this.option).then(
-      (data) => {
-        console.log(data);
-        this.scanData = data;
-        this.sendData()
+      (id_user) => {
+        if (event == '1') {
+          this.com.setHours(0o7, 0o0, 0o0);
+          if (this.com < this.current) {
+            this.data = {
+              user: id_user.text,
+              event: event,
+              status: 'Puntual',
+              date: this.current.toISOString().slice(0, 10),
+            };
+          } else {
+            this.data = {
+              user: id_user.text,
+              event: event,
+              status: 'Retardo',
+              date: this.current.toISOString().slice(0, 10),
+            };
+          }
+          alert('Paso M');
+        } else {
+          this.com.setHours(19, 30, 0o0);
+          if (this.com < this.current) {
+            this.data = {
+              user: id_user.text,
+              event: event,
+              status: 'Puntual',
+              date: this.current.toISOString().slice(0, 10),
+            };
+          } else {
+            this.data = {
+              user: id_user.text,
+              event: event,
+              status: 'Retardo',
+              date: this.current.toISOString().slice(0, 10),
+            };
+          }
+          alert('Paso v');
+        }
+        const assistance = this.data;
+        console.log(this.data);
+        this.service.insert(assistance).subscribe((response) => {
+        this.alertcrl
+        .create({
+          header: 'HEY!',
+          message: 'Alumno registrado'+response,
+          buttons: ['Close'],
+        })
+        .then((alertView) => alertView.present());
+        });
       },
       (err) => {
-        console.log('Scan data error: ', err);
+        this.alertcrl
+        .create({
+          header: 'HEY!',
+          message: 'Error al registrar al alumno: '+err,
+          buttons: ['Close'],
+        })
+        .then((alertView) => alertView.present());
       }
     );
   }
 
   //send to the data base
-  sendData(){
-
-  }
+  sendData(assistance) {}
 }
