@@ -9,3 +9,4 @@ En el supuesto de que los desarrolladores deseen aplicar el uso de este producto
 -El producto queda unicamente para uso del dormitorio de varones de la universidad linda vista, bajo supervicion de los desarrolladores.
 -Cualquier falla o necesidad de modificación sera notificada a los desarrolladores, y quedara a cargo de ellos. Si se accede, de la misma manera las condiciones no cambian.
 ESTAS CONDICIONES NO SON MODIFICABLES POR NADIE MAS A EXCEPCION DE LOS CREADORES.
+*Este programa es público ajeno a cualquier partido político. Queda prohibido el uso para fines distintos a los establecidos en el programa*
