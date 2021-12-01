@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-//qr import
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
-
-
+//barcodescanner
+import { BarcodeScanner, BarcodeScannerOptions} from '@ionic-native/barcode-scanner/ngx';
+//ayuda a base de datos
+import { PHPService } from '../services/php.service';
 
 @Component({
   selector: 'app-scan',
@@ -11,14 +10,26 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
   styleUrls: ['./scan.page.scss'],
 })
 export class ScanPage implements OnInit {
+  scanData: {};
+  option: BarcodeScannerOptions;
+//inyectar constructor
+constructor(private scanner: BarcodeScanner, private service:PHPService) {}
+
+time = new Date();
+
+/* //constructor
+this.data += this.time.toLocaleTimeString() + " "
+this.data += this.time.toLocaleDateString(); */
 
   ngOnInit() {
+    /* this.service.proofId('').subscribe(response =>{
+      console.log(response)
+    }) */
   }
-
-  //inyectar constructor
-  constructor(private qrScanner: QRScanner) {  }
+  
   // function to scan
-  scanner(){
+  /* 
+  QRscaner(){
     // Optionally request the permission early
     this.qrScanner.prepare().then((status: QRScannerStatus) => {
       if (status.authorized) {
@@ -42,7 +53,26 @@ export class ScanPage implements OnInit {
       }
     })
     .catch((e: any) => console.log('Error is', e));
-    
+  }
+  */
+  scan() {
+    this.option = {
+      prompt: 'scan your qrcode',
+    };
+    this.scanner.scan(this.option).then(
+      (data) => {
+        console.log(data);
+        this.scanData = data;
+        this.sendData()
+      },
+      (err) => {
+        console.log('Scan data error: ', err);
+      }
+    );
   }
 
+  //send to the data base
+  sendData(){
+
+  }
 }

@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./scan/scan.module').then( m => m.ScanPageModule)
   },
   {
-    path: 'index',
+    path: 'index/:id', //pass data
     loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
   },
 ];

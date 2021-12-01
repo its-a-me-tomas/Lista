@@ -13,12 +13,12 @@
     <!-- input -->
     <ion-item class="color" type="number">
       <ion-label position="floating">Ingresa tu matricula</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="number" [(ngModel)]="matricula"></ion-input>
     </ion-item>
     <!-- valid button -->
-    <ion-button expand="block" color="dark" [routerLink]="['/index']" class="validar">Ingresar</ion-button>  
+    <ion-button expand="block" color="dark" (click)="change()" class="validar">Ingresar</ion-button>  
     <!-- scan button -->
-    <ion-button expand="block" color="dark" [routerLink]="['/scan']" class="validar">Scan</ion-button>
+    <!-- <ion-button expand="block" color="dark" [routerLink]="['/scan']" class="validar">Scan</ion-button> -->
   </div>
 </ion-content>
 

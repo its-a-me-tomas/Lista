@@ -1,13 +1,6 @@
-ion-toolbar{
-  text-align: center;
-  --background: rgb(0, 0, 0);
-  color: white;
-}
-
 ion-content.background{
-  --background:url(../../assets/fondo.png) center no-repeat;
+    --background:url(../../assets/fondo.png) center no-repeat;
 }
-
 ion-button.pos{
     margin-top: 80px;
 }
