@@ -26,7 +26,7 @@ export class ScanPage implements OnInit {
   }
 
   current = new Date();
-  com = new Date();
+  comparar = new Date();
   json: JSON;
   data: any;
   // function to scan
@@ -38,8 +38,8 @@ export class ScanPage implements OnInit {
     this.scanner.scan(this.option).then(
       (id_user) => {
         if (event == '1') {
-          this.com.setHours(0o7, 0o0, 0o0);
-          if (this.com > this.current) {
+          this.comparar.setHours(0o7, 0o0, 0o0);
+          if (this.comparar > this.current) {
             this.data = {
               user: id_user.text,
               event: event,
@@ -56,8 +56,8 @@ export class ScanPage implements OnInit {
           }
           //alert('Paso M');
         } else {
-          this.com.setHours(19, 30, 0o0);
-          if (this.com > this.current) {
+          this.comparar.setHours(19, 30, 0o0);
+          if (this.comparar > this.current) {
             this.data = {
               user: id_user.text,
               event: event,
