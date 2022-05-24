@@ -20,8 +20,8 @@ export interface Assistance {
 })
 export class PHPService {
   //URL a la app
-  private url = 'http://localhost/api_crud/alumno';
-  //private url = "https://www.black-hatcoders.com/api_crud/connection/alumno"
+  //private url = 'http://localhost/api_crud/alumno';
+  private url = "http://controldormitorio.mywebcommunity.org/api_crud/alumno";
   constructor(private http: HttpClient) {} //injectar
 
   //create the methodsAlumno
