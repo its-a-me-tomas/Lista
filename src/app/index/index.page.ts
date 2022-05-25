@@ -1,33 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 //get data route
 import { ActivatedRoute } from "@angular/router";
-//barcode
-import { BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
-
+//import service
+import { PHPService } from "../services/php.service";
 @Component({
   selector: 'app-index',
   templateUrl: './index.page.html',
   styleUrls: ['./index.page.scss'],
 })
 export class IndexPage implements OnInit {
-  QR: {};
-  
-  data: any ;
-  constructor(private scanner: BarcodeScanner, private active: ActivatedRoute) { }
+  private QR: string;
+  private id: string ;
+  constructor(private active: ActivatedRoute,private service: PHPService) { }
 
   ngOnInit() {
-    this.data = this.active.snapshot.paramMap.get('id')//get matricula by url 
+    this.id = this.active.snapshot.paramMap.get('id')//obtener matricula de /home/ by url = /index/id 
     //console.log(this.data); 
-    this.qrcode(this.data); 
+    this.qrcode(this.id); 
   }
-  
-  qrcode(encodedData: string){
-    this.scanner.encode(this.scanner.Encode.TEXT_TYPE,encodedData).then((QR)=>{
-      //console.log(QR);
-      this.QR = QR;
-    }, (err)=>{
-      console.log("Error to encoded data: "+err)
-    })
-
+  //api qr
+  qrcode(id: string){
+    console.log('qrcode');
+    this.QR = "http://api.qrserver.com/v1/create-qr-code/?data="+id+'&size=440x440&bgcolor=221-236-86&qzone=2';
   }
 }

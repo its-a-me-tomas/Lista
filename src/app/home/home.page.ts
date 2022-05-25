@@ -23,12 +23,12 @@ export class HomePage {
   }
 
   change() {
-    console.log('button clicked');
+    //console.log('button clicked');
     if (this.matricula == undefined) {
       this.alertcrl
         .create({
-          header: 'HEY!',
-          message: 'You need to fill matricula',
+          header: 'Atencion!',
+          message: 'Ingresa tu matricula',
           buttons: ['Close'],
         })
         .then((alertView) => alertView.present());
@@ -39,18 +39,18 @@ export class HomePage {
         if (Response == null) {
           this.alertcrl
             .create({
-              header: 'HEY!',
-              message: "the matricula doesn't exist",
+              header: 'Atencion!',
+              message: "Esa matricula no existe",
               buttons: ['Close'],
             })
             .then((alertView) => alertView.present());
         } else {
-          if (Response.access == 1) {
+          if (Response.access == 2) {
             this.route.navigate(['/scan']);
             console.log('monitor access: ' + Response.name);
-          } else {
+          } else if (Response.access == 1){
             this.route.navigate(['/index/' + Response.id_user]);
-            console.log('id alumno: ' + Response.id_user);
+            //console.log('id alumno: ' + Response.id_user);
           }
         }
       });

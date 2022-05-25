@@ -26,8 +26,8 @@ export class PHPService {
 
   //create the methodsAlumno
   //insert assistance
-  insert(assistance: any) {
-    return this.http.post(this.url,+ '/asistencia'+ assistance);
+  insert(assistance: JSON) {
+    return this.http.post(this.url + '/asistencia/', assistance);
   }
 
   proofId(matricula: String) {
